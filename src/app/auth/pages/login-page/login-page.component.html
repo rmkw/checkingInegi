@@ -1,0 +1,44 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col">
+      <div class="card">
+        <div class="card-header text-center pad">
+          <div class="text-center">
+            <img src="../../../../assets/images/inegi_logo.png" class="img-fluid mmm" alt="...">
+          </div>
+
+
+
+        </div>
+        <div class="card-body">
+          <form action="" autocomplete="off" [formGroup]="myForm" (ngSubmit)="login()">
+
+            <div class="mb-3 form-group">
+              <label for="email" class="form-label">Cuenta</label>
+              <input type="email" class="form-control" id="email" formControlName="email" name="email" required
+                placeholder="Correo electrónico" aria-describedby="emailHelp">
+              <div id="emailHelp" class="form-text">Nunca compartiremos su correo electrónico con nadie más.</div>
+            </div>
+
+            <div class="mb-3">
+              <label for="exampleInputPassword1" class="form-label">Contraseña</label>
+              <input type="password" class="form-control" id="exampleInputPassword1" formControlName="password" name="password"
+                required placeholder="Ingrese su contraseña">
+            </div>
+
+
+
+            <div class="d-grid gap-2">
+              <button type="submit" class="btn btn-block btn-grad" style="margin-top: 1rem; margin-bottom: 1rem;" [disabled]="myForm.invalid">Iniciar
+                Sesión</button>
+            </div>
+
+          </form>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+</div>

@@ -1,0 +1,28 @@
+<div class="container mt-5">
+  <div class="d-flex justify-content-between align-items-center mb-4">
+    <h1>Dirección de Análisis de
+    Información sobre Recursos
+    Naturales y Medio Ambiente</h1>
+    <button class="btn btn-danger" (click)="onLogout()">Cerrar Sesión</button>
+  </div>
+  <div class="mb-4">
+    <h2>User</h2>
+    <pre>{{ user() | json }}</pre>
+  </div>
+  <div *ngIf="personas.length > 0; else noData">
+    <div class="row">
+      <div class="col-md-4" *ngFor="let persona of personas">
+        <div class="card mb-4">
+          <div class="card-body">
+            <h5 class="card-title">{{ persona.nombre }}</h5>
+            <p class="card-text">Área: {{ persona.des_area }}</p>
+            <p class="card-text">N. Empleado: {{ persona.num_emp }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <ng-template #noData>
+    <p>No hay datos disponibles.</p>
+  </ng-template>
+</div>
