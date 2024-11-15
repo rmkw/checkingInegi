@@ -1,0 +1,26 @@
+.containerCustom {
+  width: 90%;
+  margin: 0 auto;
+}
+.mtCustom{
+  margin-top: 1rem;
+}
+.mrCustom{
+  margin-right: 1rem;
+}
+/* Animación para las tarjetas */
+.custom-card-height {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+}
+.custom-card-height:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+}
+.btn-custom{
+  --bs-btn-padding-y: .25rem;
+  --bs-btn-padding-x: .9rem;
+  --bs-btn-font-size: .75rem;
+  line-height: 1.5;
+}

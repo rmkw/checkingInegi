@@ -1,7 +1,7 @@
 
 import { Component, computed, inject, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/auth/services/auth.service';
-import { PersonaService } from '../../services/persona.service';
+import { MyService } from '../../services/my.service';
 
 @Component({
   templateUrl: './dashboard-layout.component.html',
@@ -21,11 +21,9 @@ export class DashboardLayoutComponent implements OnInit {
 
   personas: any[] = [];
 
-  constructor(private personaService: PersonaService) {}
+  constructor(private _myServices: MyService) {}
 
   ngOnInit(): void {
-    this.personaService.getPersonas().subscribe((data) => {
-      this.personas = data;
-    });
+    console.log('dashboard-layout->consultar-component');
   }
 }

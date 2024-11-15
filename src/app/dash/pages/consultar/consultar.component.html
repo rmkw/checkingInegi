@@ -1,1 +1,108 @@
-<p>consultar works!</p>
+<div class="containerCustom mtCustom">
+
+  <div class="justify-content-between align-items-center mb-3">
+    <h4 class="">Subdirecciones:</h4>
+  </div>
+
+
+  <!--! direcciones GET  -->
+  <div [hidden]="flagSubdireccionesHidden">
+    <div *ngIf="subdirecciones.length > 0; else noData">
+      <div class="row mb-2">
+        <div class="col" *ngFor="let subdireccion of subdirecciones">
+          <div class="card mb-4 custom-card-height" (click)="getDepartamentos(subdireccion)">
+            <div class="card-body">
+              <h6 class="card-title d-inline me-2">{{subdireccion.name}}</h6>
+              <p class="card-text d-inline"><i [ngClass]="subdireccion.icon"></i></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <ng-template #noData>
+      <p>No hay datos disponibles.</p>
+    </ng-template>
+  </div>
+
+
+  <!--! cuando se le da click a una dirección-->
+  <div [hidden]="!flagSubdireccionesHidden">
+
+    <div class="row mb-2">
+      <div class="col">
+        <div class="card mb-2 custom-card-height" (click)="regresarSubdireccion()">
+          <div class="card-body">
+            <h6 class="card-title d-inline me-2">{{this.selectSubdirecccion[0]?.name}}</h6>
+            <p class="card-text d-inline"><i [ngClass]="this.selectSubdirecccion[0]?.icon"></i></p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="d-flex align-items-center mb-3">
+      <h4 class="mrCustom mb-0">Responsable:</h4>
+      <h4 class="mrCustom mb-0">{{this.selectSubdirecccion[0]?.personas_encargadas[0]?.nombre }}</h4>
+      <button type="button" class="btn btn-primary btn-custom ml-3">
+        Consultar
+      </button>
+    </div>
+
+
+    <div class="justify-content-between align-items-center mb-3">
+      <h4 class="">Departamentos:</h4>
+    </div>
+
+
+    <div class="row mb-2">
+      <div class="col" *ngFor="let departamento of departamentos;let i = index">
+        <div class="card mb-4 custom-card-height" (click)="getEmpleados(departamento)">
+          <div class="card-body">
+            <h6 class="card-title d-inline me-2">{{departamento.name}}</h6>
+            <p class="card-text d-inline"><i [ngClass]="departamento.icon"></i></p>
+          </div>
+        </div>
+
+
+
+        <!-- <div class="d-flex align-items-center mb-3">
+          <h4 class="mrCustom mb-0">Responsable:</h4>
+          <hr>
+          <h4 class="mrCustom mb-0">{{departamentos[i]?.responsable[0].nombre }}</h4>
+          <button type="button" class="btn btn-primary btn-custom ml-3">
+            Consultar
+          </button>
+        </div> -->
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <!-- <div *ngIf="personas.length > 0; else noData">
+    <div class="row">
+      <div class="col-md-4" *ngFor="let persona of personas">
+        <div class="card mb-4">
+          <div class="card-body">
+            <h5 class="card-title">{{ persona.nombre }}</h5>
+            <p class="card-text">Área: {{ persona.des_area }}</p>
+            <p class="card-text">N. Empleado: {{ persona.num_emp }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <ng-template #noData>
+    <p>No hay datos disponibles.</p>
+  </ng-template> -->
+</div>

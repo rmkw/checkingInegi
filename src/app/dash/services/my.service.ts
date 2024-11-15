@@ -6,7 +6,7 @@ import { environment } from "src/environments/environments";
 @Injectable({
   providedIn: 'root',
 })
-export class PersonaService {
+export class MyService {
   constructor() {}
 
   private readonly baseUrl: string = environment.baseUrl;
@@ -14,5 +14,14 @@ export class PersonaService {
 
   getPersonas(): Observable<any> {
     return this.http.get<any>(`${this.baseUrl}/personas`);
+  }
+  getSubdireccion(): Observable<any> {
+    return this.http.get<any>(`${this.baseUrl}/subdir/subdirecciones`);
+  }
+  getDepartamentosPorSubdireccion(subdireccionId: string) {
+    console.log(subdireccionId)
+    return this.http.get<any[]>(
+      `${this.baseUrl}/depa/subdireccion/${subdireccionId}`
+    );
   }
 }

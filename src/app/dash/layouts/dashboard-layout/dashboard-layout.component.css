@@ -1,3 +1,12 @@
 .custom-card-height {
   height: 5rem;
 }
+.padRight{
+  padding-right: 1rem;
+}
+.imgCustom{
+  cursor: pointer;
+    padding-right: 5px;
+    height: 2rem;
+
+}
