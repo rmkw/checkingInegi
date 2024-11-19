@@ -1,0 +1,13 @@
+.fc .fc-col-header-cell-cushion {
+  /* background-color: #ffcc00; */
+  /* Cambia este valor al color de fondo que prefieras */
+  color: #000000;
+  /* Cambia este valor al color de texto que prefieras */
+}
+.fc .fc-daygrid-day-number{
+  color: #000000;
+  text-decoration: none;
+}
+.fc-day-today {
+  background-color: transparent !important;
+}

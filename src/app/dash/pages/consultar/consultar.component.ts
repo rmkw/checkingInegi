@@ -15,8 +15,12 @@ export class ConsultarComponent implements OnInit {
   selectSubdirecccion: any[] = [];
   selectDepartamento: any[] = [];
 
+  personalDepartamento: any[] = [];
+
+  //! hidden
   flagSubdireccionesHidden: boolean = false;
-  flagDepartamentoHidden: boolean = false;
+  //! ngif
+  flagDepartamentoHidden: boolean = true;
 
   constructor(private _myServices: MyService) {}
 
@@ -27,11 +31,10 @@ export class ConsultarComponent implements OnInit {
 
     this._myServices.getSubdireccion().subscribe((data) => {
       this.subdirecciones = data;
-      console.log(data);
     });
   }
 
-  getDepartamentos(subdireccionId: Subdireccion): void {
+  showSubdireccion(subdireccionId: Subdireccion): void {
     this.selectSubdirecccion = [subdireccionId];
     const const_sub_id = subdireccionId.sub_id;
 
@@ -41,19 +44,32 @@ export class ConsultarComponent implements OnInit {
         this.departamentos = data;
         console.log(data);
       });
+
+    //!la bandera funciona para ocultar las sub y mostrar la seleccionada
     this.flagSubdireccionesHidden = true;
-    console.log(this.selectSubdirecccion);
   }
+
+  showDepartamento(departamentoId: Departamentos): void {
+    console.log('entraste a getEmpleados', departamentoId);
+    this.flagDepartamentoHidden = false;
+    this.selectDepartamento = [departamentoId];
+    const const_id_departamento = departamentoId.id_departamento;
+
+    console.log(this.selectDepartamento);
+    this.personalDepartamento = this.selectDepartamento[0].equipo;
+    console.log(this.personalDepartamento)
+  }
+
+  //! REGRESOS
   regresarSubdireccion() {
     this.flagSubdireccionesHidden = false;
     this.selectSubdirecccion = [];
-  }
-  getEmpleados(departamentoId: Departamentos): void {
-    console.log(departamentoId);
-    this.flagDepartamentoHidden = true;
-    this.selectDepartamento = [departamentoId];
-    const const_id_departamento = departamentoId.id_departamento;
-    console.log(this.selectDepartamento);
 
+    this.flagDepartamentoHidden = true;
+    this.selectDepartamento = [];
+  }
+  regresarDepartamentos() {
+    this.flagDepartamentoHidden = true;
+    this.selectDepartamento = [];
   }
 }
